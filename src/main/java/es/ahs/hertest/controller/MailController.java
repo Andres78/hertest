@@ -63,11 +63,11 @@ public class MailController {
 
         try {
 
-            Message message = new MimeMessage(session);
+            MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject("Testing Subject");
+            message.setSubject("Погода Testing Subject");
             /*message.setText("Dear Mail Crawler,"
                     + "\n\n mail2 No spam to my email, please!\n\n" + body);*/
 //            message.setContent(body, "text/html; charset=utf-8");
