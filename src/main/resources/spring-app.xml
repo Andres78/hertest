@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:annotation-config/>
+<!--
+    <context:component-scan base-package="es.ahs.hertest"/>
+
+    <bean class="java.net.URI" id="dbUrl">
+        <constructor-arg value="${DBURL}"/>
+    </bean>-->
+  <!--  <bean id="dataSource"
+          class="org.apache.tomcat.jdbc.pool.DataSource"
+          p:url="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + @dbUrl.getPath() }"
+          p:username="#{ @dbUrl.getUserInfo().split(':')[0] }"
+          p:password="#{ @dbUrl.getUserInfo().split(':')[1] }"
+          p:driverClassName="org.postgresql.Driver"
+          p:maxActive="10"
+          p:minIdle="2"
+          p:maxWait="20000"
+          p:initialSize="2"
+          p:maxIdle="5"
+          p:testOnBorrow="true"
+          p:removeAbandoned="true"
+          p:testOnConnect="true"
+          p:testWhileIdle="true"/>
+
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="es.ahs.hertest"/>
+        <property name="jpaVendorAdapter" ref="vendorAdapter"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
+                &lt;!&ndash;<prop key="hibernate.hbm2ddl.auto">create-drop</prop>&ndash;&gt;
+            </props>
+        </property>
+    </bean>
+    <bean id="vendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="generateDdl" value="true"/>
+        <property name="showSql" value="true"/>
+        <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+          p:entityManagerFactory-ref="entityManagerFactory"/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+-->
+
+</beans>
