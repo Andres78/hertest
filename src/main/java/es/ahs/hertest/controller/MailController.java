@@ -74,7 +74,7 @@ public class MailController {
 //            message.setText(body, "utf-8", "html");
 //            message.setContent("<b>" + body + "</b>", "utf-8; text/html");
 
-            message.setText(body);
+            message.setText(body + "\n\n ---  Проверка русского в нативе");
 
 
             Transport.send(message);
