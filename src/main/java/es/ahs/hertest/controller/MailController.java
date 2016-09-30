@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.condition.MediaTypeExpression;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -49,15 +50,15 @@ public class MailController {
 
         try {
 
-            MimeMessage message = new MimeMessage(session);
+            Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
             message.setSubject("Testing Subject");
             /*message.setText("Dear Mail Crawler,"
                     + "\n\n mail2 No spam to my email, please!\n\n" + body);*/
-//            message.setContent(body, "text/html; charset=utf-8");
-            message.setText(body, "utf-8", "html");
+            message.setContent(body, "text/html; charset=utf-8");
+//            message.setText(body, "utf-8", "html");
 
 
             Transport.send(message);
