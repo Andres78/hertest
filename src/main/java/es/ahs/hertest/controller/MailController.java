@@ -28,7 +28,7 @@ public class MailController {
                            @RequestParam(value = "to", required = false, defaultValue = "") String to,
                            @RequestParam(value = "body", required = false, defaultValue = "") String body) {
         sendMail(host, from, pass, to, body);
-        String res = "" + host +" : "+ from +" : "+ to +" : "+ body;
+        String res = "" + host +" : "+ from +" : "+ to +" : "+ body + "\n\n--- sended via get method";
         return res;
     }
 
@@ -39,7 +39,7 @@ public class MailController {
                             @RequestParam(value = "pass", required = false, defaultValue = "") String pass,
                             @RequestParam(value = "to", required = false, defaultValue = "") String to,
                             @RequestParam(value = "body", required = false, defaultValue = "") String body) {
-        sendMail(host, from, pass, to, body);
+        sendMail(host, from, pass, to, body + "\n\n--- sended via post method");
         String res = "" + host +" : "+ from +" : "+ to +" : "+ body;
         return res;
     }
