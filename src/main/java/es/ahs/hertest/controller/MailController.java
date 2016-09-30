@@ -3,6 +3,7 @@ package es.ahs.hertest.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.condition.MediaTypeExpression;
@@ -26,6 +27,18 @@ public class MailController {
                            @RequestParam(value = "pass", required = false, defaultValue = "") String pass,
                            @RequestParam(value = "to", required = false, defaultValue = "") String to,
                            @RequestParam(value = "body", required = false, defaultValue = "") String body) {
+        sendMail(host, from, pass, to, body);
+        String res = "" + host +" : "+ from +" : "+ to +" : "+ body;
+        return res;
+    }
+
+
+    @RequestMapping(value = "/tmp", method = RequestMethod.POST)
+    public String testMailPost(@RequestParam(value = "host", required = false, defaultValue = "") String host,
+                            @RequestParam(value = "from", required = false, defaultValue = "") String from,
+                            @RequestParam(value = "pass", required = false, defaultValue = "") String pass,
+                            @RequestParam(value = "to", required = false, defaultValue = "") String to,
+                            @RequestParam(value = "body", required = false, defaultValue = "") String body) {
         sendMail(host, from, pass, to, body);
         String res = "" + host +" : "+ from +" : "+ to +" : "+ body;
         return res;
