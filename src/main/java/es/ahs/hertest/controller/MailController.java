@@ -57,8 +57,9 @@ public class MailController {
             message.setSubject("Testing Subject");
             /*message.setText("Dear Mail Crawler,"
                     + "\n\n mail2 No spam to my email, please!\n\n" + body);*/
-            message.setContent(body, "text/html; charset=utf-8");
+//            message.setContent(body, "text/html; charset=utf-8");
 //            message.setText(body, "utf-8", "html");
+            message.setText(body);
 
 
             Transport.send(message);
