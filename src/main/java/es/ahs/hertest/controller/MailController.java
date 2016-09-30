@@ -63,7 +63,7 @@ public class MailController {
 
         try {
 
-            MimeMessage message = new MimeMessage(session);
+            Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
@@ -74,7 +74,8 @@ public class MailController {
 //            message.setText(body, "utf-8", "html");
 //            message.setContent("<b>" + body + "</b>", "utf-8; text/html");
 
-            message.setText(body + "\n\n ---  Проверка русского в нативе", "html");
+            message.setText(body + "\n\n ---  Проверка русского в нативе");
+//            message.setText(body + "\n\n ---  Проверка русского в нативе", "html");
 
 
             Transport.send(message);
