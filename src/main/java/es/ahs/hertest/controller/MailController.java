@@ -38,7 +38,7 @@ public class MailController {
                             @RequestParam(value = "pass", required = false, defaultValue = "") String pass,
                             @RequestParam(value = "to", required = false, defaultValue = "") String to,
                             @RequestParam(value = "body", required = false, defaultValue = "") String body) {
-        sendMail(host, from, pass, to, body + "\n\n--- sended via post method");
+        sendMail(host, from, pass, to, body + "\n\n--- \n");
         String res = "" + host +" : "+ from +" : "+ to +" : "+ body;
         return res;
     }
