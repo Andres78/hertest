@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.condition.MediaTypeExpression;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -72,10 +71,9 @@ public class MailController {
                     + "\n\n mail2 No spam to my email, please!\n\n" + body);*/
 //            message.setContent(body, "text/html; charset=utf-8");
 //            message.setText(body, "utf-8", "html");
-            message.setContent("<b>" + body + "</b>", "utf-8; text/html");
+//            message.setContent("<b>" + body + "</b>", "utf-8; text/html");
 
-//            message.setText(body + "\n\n ---  Проверка русского в нативе");
-//            message.setText(body + "\n\n ---  Проверка русского в нативе", "html");
+            message.setText(body + "\n\n ---  Проверка русского в нативе", "html");
 
 
             Transport.send(message);
