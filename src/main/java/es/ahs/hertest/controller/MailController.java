@@ -43,9 +43,6 @@ public class MailController {
         return res;
     }
 
-
-
-
     private void sendMail(String host, String from, String pass, String to, String body) {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -61,26 +58,14 @@ public class MailController {
                 });
 
         try {
-
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
             message.setSubject("Погода");
-            /*message.setText("Dear Mail Crawler,"
-                    + "\n\n mail2 No spam to my email, please!\n\n" + body);*/
             message.setContent(body, "text/html; charset=utf-8");
-//            message.setText(body, "utf-8", "html");
-//            message.setContent("<b>" + body + "</b>", "utf-8; text/html");
-
-//            message.setText(body + "\n\n ---  Проверка русского в нативе");
-//            message.setText(body + "\n\n ---  Проверка русского в нативе", "html");
-
-
             Transport.send(message);
-
             System.out.println("Done");
-
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
