@@ -62,7 +62,7 @@ public class MailController {
             message.setFrom(new InternetAddress("weather@skypiter.ru"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject("Погода");
+            message.setSubject("Mail from datagrabber");
             message.setContent(body, "text/html; charset=utf-8");
             Transport.send(message);
             System.out.println("Done");
