@@ -24,6 +24,7 @@ public class MailController {
         return str;
     }
 
+/*
 
     @RequestMapping("/tm")
     public String testMail2(@RequestParam(value = "host", required = false, defaultValue = "") String host,
@@ -35,6 +36,7 @@ public class MailController {
         String res = "" + host +" : "+ from +" : "+ to +" : "+ body + "\n\n--- sended via get method";
         return res;
     }
+*/
 
 
     @RequestMapping(value = "/tmp", method = RequestMethod.POST)
@@ -61,7 +63,6 @@ public class MailController {
                         return new PasswordAuthentication(from, pass);
                     }
                 });
-
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress("weather@skypiter.ru"));
