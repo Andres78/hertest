@@ -21,10 +21,9 @@ public class MailController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String anyResponse(String str) {
-        return str;
+        return "Your text: " + str;
     }
 
-/*
 
     @RequestMapping("/tm")
     public String testMail2(@RequestParam(value = "host", required = false, defaultValue = "") String host,
@@ -36,7 +35,6 @@ public class MailController {
         String res = "" + host +" : "+ from +" : "+ to +" : "+ body + "\n\n--- sended via get method";
         return res;
     }
-*/
 
 
     @RequestMapping(value = "/tmp", method = RequestMethod.POST)
