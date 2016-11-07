@@ -19,6 +19,11 @@ import java.util.Properties;
 public class MailController {
     private static final Logger log = LoggerFactory.getLogger(MailController.class);
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String anyResponse(String str) {
+        return str;
+    }
+
 
     @RequestMapping("/tm")
     public String testMail2(@RequestParam(value = "host", required = false, defaultValue = "") String host,
@@ -43,7 +48,7 @@ public class MailController {
         return res;
     }
 
-    private void sendMail(String host, String from, String pass, String to, String body) {
+    private String sendMail(String host, String from, String pass, String to, String body) {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -67,8 +72,8 @@ public class MailController {
             Transport.send(message);
             System.out.println("Done");
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            return "Error: " + e.getLocalizedMessage();
         }
-
+        return "Ok.";
     }
 }
