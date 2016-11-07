@@ -19,7 +19,7 @@ import java.util.Properties;
 public class MailController {
     private static final Logger log = LoggerFactory.getLogger(MailController.class);
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String anyResponse(String str) {
         return str;
     }
